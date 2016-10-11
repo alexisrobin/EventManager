@@ -9,6 +9,7 @@ public class LoginController implements PageController{
 
     @Override
     public String execute(HttpServletRequest request) {
-        return null;
+        request.getSession().setAttribute("name", "kepa");
+        return "login.jsp";
     }
 }
