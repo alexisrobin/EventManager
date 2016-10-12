@@ -1,0 +1,11 @@
+.wrapperAuth {
+    margin : 100px auto auto auto;
+    max-width : 300px;
+    max-height : 960px;
+    padding : 20px;
+}
+
+.submitbutton{
+    position: fixed;
+    float : right;
+}
