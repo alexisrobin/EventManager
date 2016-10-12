@@ -8,21 +8,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/JSPtest.css"/>
-    <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/JSPtest.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css"/>
     <title>Title</title>
 </head>
 <body>
 
-<script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 
 <h1>Authentification</h1>
 
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
 <div class="wrapperAuth">
-
     <!-- Onglets -->
     <div class="tabs">
         <h2 class="test">Connexion</h2>

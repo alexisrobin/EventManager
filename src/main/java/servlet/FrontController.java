@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * Created by Alexis on 05/10/2016.
  */
-@WebServlet(name = "FrontCOntroller", urlPatterns = "/")
+@WebServlet(name = "FrontController", urlPatterns = "/action/*")
 public class FrontController extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
@@ -35,7 +35,7 @@ public class FrontController extends HttpServlet{
         if(requestUri.contains("login")){
             ctrl = new LoginController();
         }
-
+        System.out.println(requestUri);
         if(ctrl != null){
             String pageName = ctrl.execute(request);
             request.getRequestDispatcher(pageName).forward(request, response);
