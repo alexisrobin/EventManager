@@ -43,7 +43,7 @@
                     <label class="mdl-textfield__label" for="mailConnexion">Adresse e-mail</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="pwdConnexion">
+                    <input class="mdl-textfield__input" type="password" id="pwdConnexion">
                     <label class="mdl-textfield__label" for="pwdConnexion">Mot de passe</label>
                 </div><br>
                 <div>
@@ -71,11 +71,11 @@
                     <label class="mdl-textfield__label" for="mailInscription">Adresse e-mail</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="pwdInscription">
+                    <input class="mdl-textfield__input" type="password" id="pwdInscription">
                     <label class="mdl-textfield__label" for="pwdInscription">Mot de passe</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="pwdInscription2">
+                    <input class="mdl-textfield__input" type="password" id="pwdInscription2">
                     <label class="mdl-textfield__label" for="pwdInscription2">Confirmer le mot de passe</label>
                 </div><br>
                 <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="S'inscrire"><br><br>
