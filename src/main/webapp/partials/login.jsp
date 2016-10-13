@@ -23,7 +23,10 @@
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
 <div class="wrapperAuth mdl-shadow--2dp">
-    <p class="mdl-typography--title">Authentification</p>
+    <div class="EMbanner mdl-shadow--2dp">
+        <img src="${pageContext.request.contextPath}/images/logo.png" /> EventManager
+    </div>
+    <p class="mdl-typography--title EMsectionTitle">Authentification</p>
 
     <div class="mdl-tabs mdl-js-tabs">
 

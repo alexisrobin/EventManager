@@ -9,3 +9,12 @@
     position: fixed;
     float : right;
 }
+
+.EMbanner{
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+.EMsectionTitle{
+    text-align:center;
+}
