@@ -51,12 +51,14 @@
                         <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
                         <span class="mdl-checkbox__label">Se souvenir de moi</span>
                     </label>
-                </div><br>
+                </div>
+                <div>
+                    <a class="forgotten">Mot de passe oublié ?</a>
+                </div>
                 <div>
                     <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Connexion"><br><br>
                 </div>
             </form>
-            <a class="forgotten">Mot de passe oublié ?</a>
         </div>
 
 
