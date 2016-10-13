@@ -47,9 +47,9 @@
                     <label class="mdl-textfield__label" for="pwdConnexion">Mot de passe</label>
                 </div><br>
                 <div>
-                    <label class="memswitch mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-                        <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-                        <span class="mdl-switch__label">Se souvenir de moi</span>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+                        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+                        <span class="mdl-checkbox__label">Se souvenir de moi</span>
                     </label>
                 </div><br>
                 <div>
