@@ -2,6 +2,7 @@ package servlet;
 
 import controllers.LoginController;
 import controllers.PageController;
+import controllers.myEventsController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,8 @@ public class FrontController extends HttpServlet{
         String requestUri = request.getRequestURI();
         if(requestUri.contains("login")){
             ctrl = new LoginController();
+        } else if (requestUri.contains("mesEvenements")){
+            ctrl = new myEventsController();
         }
         System.out.println(requestUri);
         if(ctrl != null){

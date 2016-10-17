@@ -1,5 +1,5 @@
 .wrapperAuth {
-    margin : 100px auto auto auto;
+    margin : 100px auto;
     max-width : 300px;
     max-height : 960px;
     padding : 20px;
@@ -17,4 +17,14 @@
 
 .EMsectionTitle{
     text-align:center;
+}
+
+.wrapperEvents{
+    margin : 100px auto auto auto;
+    max-width : 500px;
+    max-height : 960px;
+}
+
+.lowerButton{
+    float:right;
 }
