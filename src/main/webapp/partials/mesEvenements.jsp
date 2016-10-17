@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/eventManager.css"/>
@@ -16,25 +17,16 @@
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
-<script type="text/javascript">
-    var event1 = {};
-    event1.name = "Manger des moignons chez Maman";
-    var event2 = {};
-    event2.name = "Soirée raclette chez Jacquie et Michel";
-    var event3 = {};
-    event3.name = "FESTIVAL DE MALADE TECHNO TECHNO"
-    var events = [];
-    events.push(event1, event2, event3);
-    console.log(events);
-</script>
 
 <div class="mdl-typography--title">Mes évènements</div>
 
 <div class="wrapperEvents mdl-shadow--2dp">
     <div>
-        <ul>
+        <ul class="mdl-list">
             <c:forEach var="event" items="${events}">
-                <li>${event.nom}</li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">${event.name}</span>
+                </li>
             </c:forEach>
         </ul>
         <div class="lowerButton">
