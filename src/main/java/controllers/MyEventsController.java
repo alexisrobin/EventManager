@@ -19,8 +19,8 @@ public class MyEventsController implements PageController {
 
     private ArrayList<Event> eventsBuilder() {
         ArrayList<Event> eventList = new ArrayList<Event>();
-        eventList.add(new Event("Java EE Meetup"));
-        eventList.add(new Event("Grosse réu"));
+       // eventList.add(new Event("Java EE Meetup"));
+       // eventList.add(new Event("Grosse réu"));
         return eventList;
     }
 }

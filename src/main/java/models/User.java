@@ -31,7 +31,7 @@ public class User {
         this.password = builder.password;
     }
 
-    public class UserBuilder{
+    public static class UserBuilder{
 
         private String mail, password;
 

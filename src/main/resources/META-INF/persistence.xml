@@ -19,7 +19,7 @@
      For a MAVEN project put this file in "src/main/resources/META-INF"
      -->
 
-    <persistence-unit name="h2-event" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="eventmanager-unit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.archive.autodetection" value="class" />

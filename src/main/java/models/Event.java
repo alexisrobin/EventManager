@@ -1,9 +1,6 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -24,6 +21,10 @@ public class Event {
     private Date startDate;
 
     private Date endDate;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
     public Event() {
     }
@@ -48,23 +49,30 @@ public class Event {
         return endDate;
     }
 
+    public User getUser() {
+        return user;
+    }
+
     public Event(EventBuilder builder) {
         this.name = builder.name;
         this.address = builder.address;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
+        this.user = builder.user;
     }
 
     public class EventBuilder{
 
         private String name, address;
         private Date startDate, endDate;
+        private User user;
 
         public EventBuilder() {
             this.name = "";
             this.address = "";
             this.startDate = null;
             this.endDate = null;
+            this.user = null;
         }
 
         public EventBuilder setName(String name) {
@@ -84,6 +92,11 @@ public class Event {
 
         public EventBuilder setEndDate(Date endDate) {
             this.endDate = endDate;
+            return this;
+        }
+
+        public EventBuilder setUser(User user) {
+            this.user = user;
             return this;
         }
 
