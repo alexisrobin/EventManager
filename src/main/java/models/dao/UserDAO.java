@@ -19,22 +19,26 @@ public class UserDAO {
 
     public void create(User user) {
         try {
+            em.getTransaction().begin();
             em.persist(user);
+            em.getTransaction().commit();
         } catch (Exception e) {
-            // SMTHG
+            System.out.println("ERROR CREATE");
+            System.out.println(e);
         }
     }
 
     public User find(String mail) {
         User user = null;
-        Query request = em.createQuery(SELECT_BY_MAIL);
+        Query request = em.createQuery(SELECT_BY_MAIL, User.class);
         request.setParameter(PARAM_MAIL, mail);
         try {
             user = (User) request.getSingleResult();
         } catch (NoResultException e) {
             return null;
         } catch (Exception e) {
-            // SMTHG
+            System.out.println("ERROR FIND");
+            System.out.println(e);
         }
         return user;
     }
