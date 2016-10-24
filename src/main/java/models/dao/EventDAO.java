@@ -21,7 +21,9 @@ public class EventDAO {
 
     public void create(Event event) {
         try {
+            em.getTransaction().begin();
             em.persist(event);
+            em.getTransaction().commit();
         } catch (Exception e) {
             // SMTHG
         }

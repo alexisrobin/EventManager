@@ -30,9 +30,9 @@
             </c:forEach>
         </ul>
         <div class="lowerButton">
-            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <a href="new" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
                 <i class="material-icons">+</i>
-            </button>
+            </a>
         </div>
     </div>
 </div>

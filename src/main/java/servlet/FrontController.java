@@ -2,6 +2,7 @@ package servlet;
 
 import controllers.LoginController;
 import controllers.MyEventsController;
+import controllers.NewEventController;
 import controllers.PageController;
 import models.User;
 import models.dao.UserDAO;
@@ -47,6 +48,8 @@ public class FrontController extends HttpServlet{
             ctrl = new LoginController();
         } else if (requestUri.contains("events")){
             ctrl = new MyEventsController();
+        } else if (requestUri.contains("new")){
+            ctrl = new NewEventController();
         } else if (requestUri.contains("tests")){
 
             System.out.println("create user");

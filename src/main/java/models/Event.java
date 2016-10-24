@@ -61,7 +61,7 @@ public class Event {
         this.user = builder.user;
     }
 
-    public class EventBuilder{
+    public static class EventBuilder{
 
         private String name, address;
         private Date startDate, endDate;
