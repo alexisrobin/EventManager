@@ -1,7 +1,10 @@
 package servlet;
 
 import controllers.LoginController;
+import controllers.MyEventsController;
 import controllers.PageController;
+import models.User;
+import models.dao.UserDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +45,18 @@ public class FrontController extends HttpServlet{
         String requestUri = request.getRequestURI();
         if(requestUri.contains("login")){
             ctrl = new LoginController();
+        } else if (requestUri.contains("events")){
+            ctrl = new MyEventsController();
+        } else if (requestUri.contains("tests")){
+
+            System.out.println("create user");
+            UserDAO uDao = new UserDAO();
+            User u = new User.UserBuilder().setMail("robinalexis@outlook.fr").setPassword("okok").build();
+            uDao.create(u);
+
+            System.out.println("find user");
+            User uFind = uDao.find("robinalexis@outlook.fr");
+            System.out.println(uFind.getPassword());
         }
         System.out.println(requestUri);
         return ctrl;
