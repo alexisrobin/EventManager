@@ -18,15 +18,23 @@ import java.io.IOException;
 public class FrontController extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        process(request, response);
+        PageController ctrl = process(request, response);
+        if(ctrl != null){
+            String pageName = ctrl.postExecute(request);
+            request.getRequestDispatcher(pageName).forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        process(request,response);
+        PageController ctrl = process(request,response);
+        if(ctrl != null){
+            String pageName = ctrl.getExecute(request);
+            request.getRequestDispatcher(pageName).forward(request, response);
+        }
     }
 
-    protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected PageController process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         // response.setContentType("text/html");
         HttpSession session = request.getSession();
@@ -36,9 +44,6 @@ public class FrontController extends HttpServlet{
             ctrl = new LoginController();
         }
         System.out.println(requestUri);
-        if(ctrl != null){
-            String pageName = ctrl.execute(request);
-            request.getRequestDispatcher(pageName).forward(request, response);
-        }
+        return ctrl;
     }
 }

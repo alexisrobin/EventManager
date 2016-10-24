@@ -40,18 +40,18 @@
         <div class="mdl-tabs__panel is-active" id="tab1-panel">
 
             <!-- Onglet connexion -->
-            <form>
+            <form method="post">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="mailConnexion">
+                    <input class="mdl-textfield__input" type="text" name="mailConnexion" id="mailConnexion">
                     <label class="mdl-textfield__label" for="mailConnexion">Adresse e-mail</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" id="pwdConnexion">
+                    <input class="mdl-textfield__input" type="password" name="pwdConnexion" id="pwdConnexion">
                     <label class="mdl-textfield__label" for="pwdConnexion">Mot de passe</label>
                 </div><br>
                 <div>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-                        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+                        <input type="checkbox" name="checkbox-1" id="checkbox-1" class="mdl-checkbox__input" checked>
                         <span class="mdl-checkbox__label">Se souvenir de moi</span>
                     </label>
                 </div>
@@ -68,17 +68,17 @@
         <div class="mdl-tabs__panel" id="tab2-panel">
 
             <!-- Onglet inscription -->
-            <form>
+            <form method="post">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="mailInscription">
-                    <label class="mdl-textfield__label" for="mailInscription">Adresse e-mail</label>
+                    <input class="mdl-textfield__input" type="text" name="mailInscription" id="mailInscription">
+                    <label class="mdl-textfield__label" for="mailInscription">Adresse mail</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" id="pwdInscription">
+                    <input class="mdl-textfield__input" type="password" name="pwdInscription" id="pwdInscription">
                     <label class="mdl-textfield__label" for="pwdInscription">Mot de passe</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" id="pwdInscription2">
+                    <input class="mdl-textfield__input" type="password" name="pwdInscription2" id="pwdInscription2">
                     <label class="mdl-textfield__label" for="pwdInscription2">Confirmer le mot de passe</label>
                 </div><br>
                 <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="S'inscrire"><br><br>
