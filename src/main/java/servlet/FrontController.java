@@ -26,8 +26,7 @@ public class FrontController extends HttpServlet{
     {
         PageController ctrl = process(request, response);
         if(ctrl != null){
-            String pageName = ctrl.postExecute(request);
-            request.getRequestDispatcher(pageName).forward(request, response);
+            ctrl.postExecute(request, response);
         }
     }
 
@@ -35,8 +34,7 @@ public class FrontController extends HttpServlet{
     {
         PageController ctrl = process(request,response);
         if(ctrl != null){
-            String pageName = ctrl.getExecute(request);
-            request.getRequestDispatcher(pageName).forward(request, response);
+            ctrl.getExecute(request, response);
         }
     }
 
@@ -52,6 +50,16 @@ public class FrontController extends HttpServlet{
             ctrl = new MyEventsController();
         } else if (requestUri.contains("new")){
             ctrl = new NewEventController();
+        } else if (requestUri.contains("auth")){
+            // Simulate test auth (create user if he doesn't exist)
+            if(!AuthManager.getInstance(session).authenticate("robinalexis@outlook.fr", "okok")){
+                System.out.println("create test user");
+                User newUser = new User.UserBuilder().setMail("robinalexis@outlook.fr").setPassword("okok").build();
+                UserDAO uDAO = new UserDAO();
+                uDAO.create(newUser);
+                AuthManager.getInstance(session).authenticate("robinalexis@outlook.fr", "okok");
+            }
+            System.out.println(AuthManager.getInstance(session).isUserAuthenticate());
         }
 
         return this.authenticationSecurityCheck(request, response, ctrl);

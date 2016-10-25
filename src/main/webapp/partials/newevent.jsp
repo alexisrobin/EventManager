@@ -28,7 +28,7 @@
         <label class="mdl-textfield__label" for="eventName">Nom de l'évènement</label>
     </div><br>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="password" name="eventAddress" id="eventAddress">
+        <input class="mdl-textfield__input" type="text" name="eventAddress" id="eventAddress">
         <label class="mdl-textfield__label" for="eventAddress">Adresse</label>
     </div><br>
 

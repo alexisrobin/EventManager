@@ -1,9 +1,14 @@
 package controllers;
 
+import authentication.AuthManager;
 import models.Event;
+import models.User;
 import models.dao.EventDAO;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Created by Alexis on 24/10/2016.
@@ -11,21 +16,24 @@ import javax.servlet.http.HttpServletRequest;
 public class NewEventController implements PageController {
 
     @Override
-    public String getExecute(HttpServletRequest request) {
-        return "/partials/newevent.jsp";
+    public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/partials/newevent.jsp").forward(request, response);
     }
 
     @Override
-    public String postExecute(HttpServletRequest request) {
+    public void postExecute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("eventName");
         String address = request.getParameter("eventAddress");
-        if(name != null && !name.isEmpty() && address != null && !address.isEmpty()){
+        User currentUser = AuthManager.getInstance(request.getSession()).getCurrentUser();
+        if(     name != null && !name.isEmpty()
+                && address != null && !address.isEmpty()
+                && currentUser != null){
             System.out.println("add event");
             EventDAO eventDAO = new EventDAO();
-            Event e = new Event.EventBuilder().setName(name).setAddress(address).build();
+            Event e = new Event.EventBuilder().setName(name).setAddress(address).setUser(currentUser).build();
             eventDAO.create(e);
         }
-        return "/partials/myevents.jsp";
+        response.sendRedirect("events");
     }
 
     @Override

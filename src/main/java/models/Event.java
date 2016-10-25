@@ -23,7 +23,6 @@ public class Event {
     private Date endDate;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
     private User user;
 
     public Event() {
