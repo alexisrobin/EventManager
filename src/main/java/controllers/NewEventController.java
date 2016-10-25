@@ -27,4 +27,9 @@ public class NewEventController implements PageController {
         }
         return "/partials/myevents.jsp";
     }
+
+    @Override
+    public AuthRequirementState getAuthRequirementState() {
+        return AuthRequirementState.IS_REQUIRED;
+    }
 }

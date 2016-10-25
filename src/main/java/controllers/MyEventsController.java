@@ -36,4 +36,9 @@ public class MyEventsController implements PageController {
         return eventList;
     }
 
+    @Override
+    public AuthRequirementState getAuthRequirementState() {
+        return AuthRequirementState.IS_REQUIRED;
+    }
+
 }

@@ -1,9 +1,11 @@
 package servlet;
 
+import authentication.AuthManager;
 import controllers.LoginController;
 import controllers.MyEventsController;
 import controllers.NewEventController;
 import controllers.PageController;
+import authentication.AuthRequirement;
 import models.User;
 import models.dao.UserDAO;
 
@@ -50,18 +52,22 @@ public class FrontController extends HttpServlet{
             ctrl = new MyEventsController();
         } else if (requestUri.contains("new")){
             ctrl = new NewEventController();
-        } else if (requestUri.contains("tests")){
-
-            System.out.println("create user");
-            UserDAO uDao = new UserDAO();
-            User u = new User.UserBuilder().setMail("robinalexis@outlook.fr").setPassword("okok").build();
-            uDao.create(u);
-
-            System.out.println("find user");
-            User uFind = uDao.find("robinalexis@outlook.fr");
-            System.out.println(uFind.getPassword());
         }
-        System.out.println(requestUri);
+
+        return this.authenticationSecurityCheck(request, response, ctrl);
+    }
+
+    protected PageController authenticationSecurityCheck(HttpServletRequest request, HttpServletResponse response, PageController ctrl) throws IOException {
+        // Authentication
+        if(     ctrl != null
+                && ctrl.getAuthRequirementState() == AuthRequirement.AuthRequirementState.IS_REQUIRED
+                && !AuthManager.getInstance(request.getSession()).isUserAuthenticate()){
+            System.out.println("Authentication is required to access this website's part");
+            ctrl =  null;
+            response.sendRedirect("login");
+        }
+
         return ctrl;
     }
+
 }

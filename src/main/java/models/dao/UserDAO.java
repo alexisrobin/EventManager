@@ -8,8 +8,9 @@ import javax.persistence.*;
  * Created by Alexis on 21/10/2016.
  */
 public class UserDAO {
-    private static final String SELECT_BY_MAIL = "SELECT u FROM User u WHERE u.mail=:mail";
+    private static final String SELECT_BY_MAIL = "SELECT u FROM User u WHERE u.mail=:mail AND u.password=:password";
     private static final String PARAM_MAIL = "mail";
+    private static final String PARAM_PASSWORD = "password";
 
     private EntityManager em;
 
@@ -28,10 +29,11 @@ public class UserDAO {
         }
     }
 
-    public User find(String mail) {
+    public User find(String mail, String password) {
         User user = null;
         Query request = em.createQuery(SELECT_BY_MAIL, User.class);
         request.setParameter(PARAM_MAIL, mail);
+        request.setParameter(PARAM_PASSWORD, password);
         try {
             user = (User) request.getSingleResult();
         } catch (NoResultException e) {

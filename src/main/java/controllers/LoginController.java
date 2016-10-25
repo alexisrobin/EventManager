@@ -21,4 +21,8 @@ public class LoginController implements PageController{
         return "/partials/login.jsp";
     }
 
+    @Override
+    public AuthRequirementState getAuthRequirementState() {
+        return AuthRequirementState.IS_NOT_REQUIRED;
+    }
 }
