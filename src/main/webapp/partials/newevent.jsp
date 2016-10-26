@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/material.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/datepicker.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/calendar.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Event Manager</title>
 </head>
 <body>
@@ -24,10 +25,10 @@
 
 <%@ include file="header.jsp" %>
 
-<div class="mdl-typography--title">Nouvel évènement</div>
-
 <!-- Form create new event -->
 <div class="wrapperCards mdl-shadow--2dp">
+
+    <div class="mdl-typography--title mdl-typography--text-center">Nouvel évènement</div>
     <form method="post">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text" name="eventName" id="eventName">

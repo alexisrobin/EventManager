@@ -20,12 +20,13 @@
 }
 
 .wrapperCards{
-    margin : auto auto auto auto;
+    margin : 100px auto auto auto;
+    padding : 20px;
     max-width : 500px;
 }
 
 .wrapperNotification{
-    margin : auto auto auto auto;
+    margin : 100px auto auto auto;
     text-align: center;
     color: darkgray;
 }
