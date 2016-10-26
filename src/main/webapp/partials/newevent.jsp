@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/material.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/datepicker.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/calendar.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-material-datetimepicker.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Event Manager</title>
 </head>
@@ -22,6 +23,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/moment.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material-datepicker.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap-material-datetimepicker.js"></script>
 
 <%@ include file="header.jsp" %>
 
@@ -38,14 +40,13 @@
             <input class="mdl-textfield__input" type="text" name="eventAddress" id="eventAddress">
             <label class="mdl-textfield__label" for="eventAddress">Adresse</label>
         </div><br>
-
-        <input class="mdl-datepicker__input" type="text" id="date-input" value="" />
+        <input id="date-format">
         <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Créer l'évènement"><br><br>
     </form>
 </div>
 
 <script type="text/javascript">
-
+    $('#date-format').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
 </script>
 
 </body>
