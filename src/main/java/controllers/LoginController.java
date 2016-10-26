@@ -3,21 +3,24 @@ package controllers;
 import authentication.AuthManager;
 import models.User;
 import models.dao.UserDAO;
-
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
  * Created by Alexis on 05/10/2016.
  */
 public class LoginController implements PageController{
 
     @Override
-    public String getExecute(HttpServletRequest request) {
+    public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("get");
-        return "/partials/login.jsp";
+		request.getSession().setAttribute("mailInscription", "kepa@mail.fr");
+        request.getRequestDispatcher("/partials/login.jsp").forward(request, response);
     }
     @Override
-    public String postExecute(HttpServletRequest request) {
-
+    public void postExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("post");
         System.out.println(request.getParameter("formType"));
         String formType = request.getParameter("formType");

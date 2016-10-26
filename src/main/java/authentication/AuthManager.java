@@ -32,6 +32,10 @@ public class AuthManager {
         return resultUser != null;
     }
 
+    public User getCurrentUser(){
+        return (User) this.session.getAttribute("user");
+    }
+
     public boolean isUserAuthenticate(){
         return this.session.getAttribute("user") != null;
     }

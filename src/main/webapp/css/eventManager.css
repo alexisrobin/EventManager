@@ -19,10 +19,9 @@
     text-align:center;
 }
 
-.wrapperEvents{
-    margin : 100px auto auto auto;
+.wrapperCards{
+    margin : auto auto auto auto;
     max-width : 500px;
-    max-height : 960px;
 }
 
 .lowerButton{
