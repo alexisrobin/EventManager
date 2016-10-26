@@ -14,7 +14,9 @@ import java.util.ArrayList;
  */
 public class EventDAO {
     private static final String SELECT_BY_USER = "SELECT e FROM Event e WHERE e.user=:user";
+    private static final String SELECT_BY_ID = "SELECT e FROM Event e WHERE e.id=:id";
     private static final String PARAM_USER = "user";
+    private static final String PARAM_ID = "id";
 
     private EntityManager em;
 
@@ -30,6 +32,21 @@ public class EventDAO {
         } catch (Exception e) {
             // SMTHG
         }
+    }
+
+    public Event findEventById(int id) {
+        Event event = null;
+        Query request = em.createQuery(SELECT_BY_ID);
+        request.setParameter(PARAM_ID, id);
+        try {
+            event = (Event) request.getSingleResult();
+        } catch (NoResultException e) {
+            System.out.println(e);
+            return null;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return event;
     }
 
     public ArrayList<Event> findEventsByUser(User user) {
