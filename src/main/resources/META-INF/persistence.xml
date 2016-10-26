@@ -28,8 +28,7 @@
             <property name="hibernate.connection.url" value="jdbc:h2:~/db/eventmanager" />
             <property name="hibernate.connection.user" value="sa" />
             <property name="hibernate.show_sql" value="true"/>
-            <!--Ici on choisira "create-drop" si on veut réinitialiser toutes les datas, sinon "update" -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
 

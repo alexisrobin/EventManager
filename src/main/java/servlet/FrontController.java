@@ -44,14 +44,16 @@ public class FrontController extends HttpServlet{
         System.out.println(requestUri);
         if(requestUri.contains("login")){
             ctrl = new LoginController();
-        } else if (requestUri.contains("register")){
-            ctrl = new RegisterController();
+        } else if (requestUri.contains("eventregister")){
+            ctrl = new EventRegisterController();
         } else if (requestUri.contains("events")){
             ctrl = new MyEventsController();
         } else if (requestUri.contains("new")){
             ctrl = new NewEventController();
         } else if (requestUri.contains("event/")){
             ctrl = new EventController();
+        } else if (requestUri.contains("register")){
+            ctrl = new RegisterController();
         }
         else if (requestUri.contains("auth")){
             // Simulate test auth (create user if he doesn't exist)
@@ -63,6 +65,8 @@ public class FrontController extends HttpServlet{
                 AuthManager.getInstance(session).authenticate("robinalexis@outlook.fr", "okok");
             }
             System.out.println(AuthManager.getInstance(session).isUserAuthenticate());
+        }else if (requestUri.contains("disconnect")){
+            AuthManager.getInstance(session).invalidateUserAuthentication();
         }
 
         return this.authenticationSecurityCheck(request, response, ctrl);

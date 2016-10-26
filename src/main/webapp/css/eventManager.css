@@ -24,6 +24,12 @@
     max-width : 500px;
 }
 
+.wrapperNotification{
+    margin : auto auto auto auto;
+    text-align: center;
+    color: darkgray;
+}
+
 .lowerButton{
     float:right;
 }
