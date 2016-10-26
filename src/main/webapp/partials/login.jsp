@@ -17,12 +17,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
 
+<%@ include file="header.jsp" %>
+
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
 <div class="wrapperAuth mdl-shadow--2dp">
-    <div class="EMbanner mdl-shadow--2dp">
-        <img src="${pageContext.request.contextPath}/images/logo.png" /> EventManager
-    </div>
     <p class="mdl-typography--title EMsectionTitle">Authentification</p>
 
     <div class="mdl-tabs mdl-js-tabs">
@@ -82,6 +81,7 @@
             </form>
         </div>
     </div>
+
 
 
 </div>

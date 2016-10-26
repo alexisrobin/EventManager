@@ -11,12 +11,18 @@
 <head>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/eventManager.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/material.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/calendar.css"/>
     <title>Event Manager</title>
 </head>
 <body>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/moment.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/material-datepicker.min.js"></script>
+
+<%@ include file="header.jsp" %>
 
 <div class="mdl-typography--title">Nouvel évènement</div>
 
@@ -32,10 +38,14 @@
             <label class="mdl-textfield__label" for="eventAddress">Adresse</label>
         </div><br>
 
-        <!-- DATE TO ADD THERE -->
+        <input class="mdl-datepicker__input" type="text" id="date-input" value="" />
         <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Créer l'évènement"><br><br>
     </form>
 </div>
+
+<script type="text/javascript">
+
+</script>
 
 </body>
 </html>

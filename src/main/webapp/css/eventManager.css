@@ -33,3 +33,11 @@
 .lowerButton{
     float:right;
 }
+
+.header-content{
+    text-align:center;
+}
+
+.header-right{
+    text-align:right;
+}

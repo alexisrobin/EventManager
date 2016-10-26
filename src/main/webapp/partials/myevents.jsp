@@ -18,6 +18,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
 
+<%@ include file="header.jsp" %>
+
 <div class="mdl-typography--title">Mes évènements</div>
 
 <div class="wrapperCards mdl-shadow--2dp">
