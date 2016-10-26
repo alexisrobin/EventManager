@@ -48,7 +48,8 @@ public class LoginController implements PageController{
             User u = new User.UserBuilder().setMail(request.getParameter("mailInscription")).setPassword(request.getParameter("pwdInscription")).build();
             uDao.create(u);
         }
-        return "/partials/login.jsp";
+
+        request.getRequestDispatcher("/partials/login.jsp").forward(request, response);
     }
 
     @Override
