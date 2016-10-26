@@ -20,7 +20,7 @@
 
 <div class="mdl-typography--title">Mes évènements</div>
 
-<div class="wrapperEvents mdl-shadow--2dp">
+<div class="wrapperCards mdl-shadow--2dp">
     <div>
         <ul class="mdl-list">
             <c:forEach var="event" items="${events}">

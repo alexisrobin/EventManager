@@ -1,14 +1,12 @@
 package models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import java.util.Date;
+import javax.persistence.*;
 
 /**
  * Created by Alexis on 25/10/2016.
  */
+
+@Entity
 public class Registrant {
 
     @Id
@@ -51,6 +49,10 @@ public class Registrant {
 
     public Event getEvent() {
         return event;
+    }
+
+    public String getFullName(){
+        return this.lastName + " " + this.firstName;
     }
 
     public Registrant(Registrant.RegistrantBuilder builder) {
