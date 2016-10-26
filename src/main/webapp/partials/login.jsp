@@ -25,6 +25,14 @@
     <p style="color:red"> Login failed. Please try again or register.</p>
 </c:if>
 
+<c:if test="${pageContext.request.getAttribute('register-failed') == 'true'}">
+    <p style="color:red"> Register failed.</p>
+</c:if>
+
+<c:if test="${pageContext.request.getAttribute('register-failed') == 'false'}">
+    <p style="color:blue"> User registered. You can now login. </p>
+</c:if>
+
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
 <div class="wrapperAuth mdl-shadow--2dp">

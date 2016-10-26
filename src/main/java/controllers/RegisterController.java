@@ -33,6 +33,11 @@ public class RegisterController implements PageController {
         UserDAO uDao = new UserDAO();
         User u = new User.UserBuilder().setMail(request.getParameter("mailInscription")).setPassword(request.getParameter("pwdInscription")).build();
         uDao.create(u);
+        if (uDao.find(request.getParameter("mailInscription"), request.getParameter("pwdInscription")) != null){
+            request.setAttribute("register-failed", "false");
+        } else {
+            request.setAttribute("register-failed", "true");
+        }
         request.getRequestDispatcher("/partials/login.jsp").forward(request, response);
     }
 }
