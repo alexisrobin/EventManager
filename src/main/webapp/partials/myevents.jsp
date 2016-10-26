@@ -20,7 +20,7 @@
 
 <%@ include file="header.jsp" %>
 
-<!-- TODO TSZ AJOUTER STYLE ->
+<!-- TODO TSZ AJOUTER STYLE -->
 <c:if test="${pageContext.request.getAttribute('login-failed') == 'false'}">
     <p style="color:blue"> Welcome !</p>
 </c:if>
