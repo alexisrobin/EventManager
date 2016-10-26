@@ -44,6 +44,8 @@ public class FrontController extends HttpServlet{
         System.out.println(requestUri);
         if(requestUri.contains("login")){
             ctrl = new LoginController();
+        } else if (requestUri.contains("register")){
+            ctrl = new RegisterController();
         } else if (requestUri.contains("events")){
             ctrl = new MyEventsController();
         } else if (requestUri.contains("new")){
