@@ -55,6 +55,9 @@
                 <div>
                     <a class="forgotten">Mot de passe oublié ?</a>
                 </div>
+                <div style="display: none;" >
+                    <input class="mdl-textfield__input" type="text" name="formType" id="formTypeLogin" value="login">
+                </div>
                 <div>
                     <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Connexion"><br><br>
                 </div>
@@ -78,6 +81,9 @@
                     <input class="mdl-textfield__input" type="password" name="pwdInscription2" id="pwdInscription2">
                     <label class="mdl-textfield__label" for="pwdInscription2">Confirmer le mot de passe</label>
                 </div><br>
+                <div style="display: none;" >
+                    <input class="mdl-textfield__input" type="text" name="formType" id="formTypeRegister" value="register">
+                </div>
                 <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="S'inscrire"><br><br>
             </form>
         </div>
