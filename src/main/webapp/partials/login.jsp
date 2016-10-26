@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/eventManager.css"/>
@@ -18,6 +19,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
 
 <%@ include file="header.jsp" %>
+
+<c:if test="${pageContext.request.getAttribute('login-failed') == 'true'}">
+    <p style="color:red"> Login failed. Please try again or register.</p>
+</c:if>
 
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
@@ -82,9 +87,6 @@
         </div>
     </div>
 
-
-
 </div>
-
 </body>
 </html>

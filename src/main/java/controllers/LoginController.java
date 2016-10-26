@@ -37,6 +37,7 @@ public class LoginController implements PageController{
         }else
         {
             System.out.println("ERROR LOGIN");
+            response.sendRedirect("loginFailed");
         }
     }
 

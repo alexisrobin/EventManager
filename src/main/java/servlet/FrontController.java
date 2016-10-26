@@ -42,7 +42,14 @@ public class FrontController extends HttpServlet{
         PageController ctrl = null;
         String requestUri = request.getRequestURI();
         System.out.println(requestUri);
-        if(requestUri.contains("login")){
+        if(requestUri.contains("loginFailed")){
+            request.setAttribute("login-failed", "true");
+            ctrl = new LoginController();
+        } else if (requestUri.contains("loginAccepted")){
+            request.setAttribute("login-failed", "false");
+            ctrl = new MyEventsController();
+        } else if(requestUri.contains("login")){
+            request.setAttribute("login-failed", "null");
             ctrl = new LoginController();
         } else if (requestUri.contains("eventregister")){
             ctrl = new EventRegisterController();
