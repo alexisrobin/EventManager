@@ -24,6 +24,11 @@
 
 <%@ include file="header.jsp" %>
 
+<c:if test="${pageContext.request.getAttribute('add-failed') == 'true'}">
+    <p style="color:red"> Error while adding the event. Make sure you are logged in and all the fields are filled.</p>
+</c:if>
+
+
 <!-- Form create new event -->
 <div class="wrapperCards mdl-shadow--2dp">
 

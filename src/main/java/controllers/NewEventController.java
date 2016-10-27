@@ -32,8 +32,10 @@ public class NewEventController implements PageController {
             EventDAO eventDAO = new EventDAO();
             Event e = new Event.EventBuilder().setName(name).setAddress(address).setUser(currentUser).build();
             eventDAO.create(e);
+            response.sendRedirect("events");
+        } else {
+            response.sendRedirect("newError");
         }
-        response.sendRedirect("events");
     }
 
     @Override

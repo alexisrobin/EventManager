@@ -56,6 +56,9 @@ public class FrontController extends HttpServlet{
         } else if (requestUri.contains("events")){
             request.setAttribute("login-failed", "null");
             ctrl = new MyEventsController();
+        } else if (requestUri.contains("newError")){
+            request.setAttribute("add-failed", "true");
+            ctrl = new NewEventController();
         } else if (requestUri.contains("new")){
             ctrl = new NewEventController();
         } else if (requestUri.contains("event/")){
