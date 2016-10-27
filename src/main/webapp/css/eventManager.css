@@ -35,6 +35,18 @@
     float:right;
 }
 
+.erreur {
+    color: rgb(213,0,0);
+    position: absolute;
+    font-size: 12px;
+    margin-top: 3px;
+    visibility: hidden;
+    display: block;
+}
+.erreur {
+    visibility: visible;
+}
+
 .header-content{
     text-align:center;
 }

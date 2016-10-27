@@ -56,13 +56,13 @@
             <!-- Onglet connexion -->
             <form action="${pageContext.request.contextPath}/action/login" method="post">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" name="mailConnexion" id="mailConnexion" required>
+                    <input class="mdl-textfield__input" type="email" name="mailConnexion" id="mailConnexion" required>
                     <label class="mdl-textfield__label" for="mailConnexion">Adresse e-mail</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" name="pwdConnexion" id="pwdConnexion" required>
+                    <input pattern=".{6,}" title="Le mot de passe doit contenir au moins 6 caracteres" class="mdl-textfield__input" type="password" name="pwdConnexion" id="pwdConnexion" required>
                     <label class="mdl-textfield__label" for="pwdConnexion">Mot de passe</label>
-                </div><br>
+               </div><br>
                 <div>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
                         <input type="checkbox" name="checkbox-1" id="checkbox-1" class="mdl-checkbox__input" checked>
@@ -83,18 +83,21 @@
 
             <!-- Onglet inscription -->
             <form action="${pageContext.request.contextPath}/action/register" method="post">
+
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" name="mailInscription" id="mailInscription" required>
+                    <input class="mdl-textfield__input" type="email" name="mailInscription" id="mailInscription" required>
                     <label class="mdl-textfield__label" for="mailInscription">Adresse mail</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" name="pwdInscription" id="pwdInscription" required>
+                    <input class="mdl-textfield__input" type="password" name="pwdInscription" id="pwdInscription" required pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Le mot de passe doit contenir au moins 6 caracteres' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;">
                     <label class="mdl-textfield__label" for="pwdInscription">Mot de passe</label>
                 </div><br>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="password" name="pwdInscription2" id="pwdInscription2" required>
+                    <input class="mdl-textfield__input" type="password" name="pwdInscription2" id="pwdInscription2" required pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Les deux mots de passe doivent être identques' : '');">
                     <label class="mdl-textfield__label" for="pwdInscription2">Confirmer le mot de passe</label>
                 </div><br>
+
+
                 <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="S'inscrire"><br><br>
             </form>
         </div>
