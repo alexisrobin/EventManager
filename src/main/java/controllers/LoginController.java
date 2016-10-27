@@ -32,12 +32,12 @@ public class LoginController implements PageController{
         if (uFind != null)
         {
             System.out.println(uFind.getPassword());
-            AuthManager.getInstance(request.getSession()).authenticate(mailConnexion,pwdConnexion);
-            response.sendRedirect("eventsLoginOk");
+            AuthManager.with(request.getSession()).authenticate(mailConnexion,pwdConnexion);
+            response.sendRedirect(request.getContextPath() + "/action/eventsLoginOk");
         }else
         {
             System.out.println("ERROR LOGIN");
-            response.sendRedirect("loginFailed");
+            response.sendRedirect(request.getContextPath() + "/action/loginFailed");
         }
     }
 

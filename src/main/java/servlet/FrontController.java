@@ -47,6 +47,8 @@ public class FrontController extends HttpServlet{
         addInfoToRequest(request, requestUri);
         if(requestUri.contains("login")){
             ctrl = new LoginController();
+        } else if (requestUri.contains("delete")){
+            ctrl = new DeleteEventController();
         } else if (requestUri.contains("eventregister")){
             ctrl = new EventRegisterController();
         } else if (requestUri.contains("events")){
@@ -68,12 +70,12 @@ public class FrontController extends HttpServlet{
                 authManager.authenticate("robinalexis@outlook.fr", "okok");
             }
             System.out.println(authManager.isUserAuthenticate());
-        }else if (requestUri.contains("disconnect")){
+        }else if (requestUri.contains("logout")){
             authManager.invalidateUserAuthentication();
-            response.sendRedirect("login");
+            response.sendRedirect(request.getContextPath() + "/action/login");
         }
 
-        return this.authenticationSecurityCheck(authManager, response, ctrl);
+        return this.authenticationSecurityCheck(request, response, ctrl);
     }
 
     // Gestion des redirections : Arguments différents ajoutés à la requête d'une même page
@@ -108,14 +110,14 @@ public class FrontController extends HttpServlet{
         }
     }
 
-    protected PageController authenticationSecurityCheck(AuthManager authManager, HttpServletResponse response, PageController ctrl) throws IOException {
+    protected PageController authenticationSecurityCheck(HttpServletRequest request, HttpServletResponse response, PageController ctrl) throws IOException {
         // Authentication
         if(     ctrl != null
                 && ctrl.getAuthRequirementState() == AuthRequirement.AuthRequirementState.IS_REQUIRED
-                && !authManager.isUserAuthenticate()){
+                && !AuthManager.with(request.getSession()).isUserAuthenticate()){
             System.out.println("Authentication is required to access this website's part");
             ctrl =  null;
-            response.sendRedirect("loginAuthNeeded");
+            response.sendRedirect(request.getContextPath() + "/action/loginAuthNeeded");
         }
 
         return ctrl;

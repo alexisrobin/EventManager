@@ -65,4 +65,14 @@ public class EventDAO {
         return events;
     }
 
+    public void delete(Event event) {
+        try {
+            em.getTransaction().begin();
+            em.remove(event);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            // SMTHG
+        }
+    }
+
 }

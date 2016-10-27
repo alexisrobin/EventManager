@@ -24,7 +24,7 @@ public class NewEventController implements PageController {
     public void postExecute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("eventName");
         String address = request.getParameter("eventAddress");
-        User currentUser = new AuthManager(request.getSession()).getCurrentUser();
+        User currentUser = AuthManager.with(request.getSession()).getCurrentUser();
         if(     name != null && !name.isEmpty()
                 && address != null && !address.isEmpty()
                 && currentUser != null){
@@ -32,9 +32,9 @@ public class NewEventController implements PageController {
             EventDAO eventDAO = new EventDAO();
             Event e = new Event.EventBuilder().setName(name).setAddress(address).setUser(currentUser).build();
             eventDAO.create(e);
-            response.sendRedirect("events");
+            response.sendRedirect(request.getContextPath() + "/action/events");
         } else {
-            response.sendRedirect("newError");
+            response.sendRedirect(request.getContextPath() + "/action/newError");
         }
     }
 
