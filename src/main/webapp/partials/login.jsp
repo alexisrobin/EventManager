@@ -20,21 +20,28 @@
 
 <%@ include file="header.jsp" %>
 
-<!-- TODO TSZ AJOUTER STYLE -->
 <c:if test="${pageContext.request.getAttribute('login-failed') == 'true'}">
-    <p style="color:red"> Login failed. Please try again or register.</p>
+    <div id="alert">
+        <a class="alert redAlert" href="#alert"><span style="color:white;">Connexion échouée. Merci de réessayer ou de vous inscrire.</span></a>
+    </div>
 </c:if>
 
 <c:if test="${pageContext.request.getAttribute('register-failed') == 'true'}">
-    <p style="color:red"> Register failed.</p>
+    <div id="alert">
+        <a class="alert redAlert" href="#alert"><span style="color:white;">Register failed.</span></a>
+    </div>
 </c:if>
 
 <c:if test="${pageContext.request.getAttribute('register-failed') == 'false'}">
-    <p style="color:blue"> User registered. You can now login. </p>
+    <div id="alert">
+        <a class="alert blueAlert" href="#alert"><span style="color:white;">Utilisateur inscrit. Vous pouvez vous connecter.</span></a>
+    </div>
 </c:if>
 
 <c:if test="${pageContext.request.getAttribute('login-needed') == 'true'}">
-    <p style="color:red"> You must be logged in to access this page. </p>
+    <div id="alert">
+        <a class="alert redAlert" href="#alert"><span style="color:white;">Vous devez être enregistré pour acceder à cette page.</span></a>
+    </div>
 </c:if>
 
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
