@@ -42,3 +42,7 @@
 .header-right{
     text-align:right;
 }
+
+li:hover {
+    background-color : lightgrey;
+}

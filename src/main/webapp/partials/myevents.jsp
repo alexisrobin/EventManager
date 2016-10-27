@@ -25,15 +25,13 @@
     <p style="color:blue"> Welcome !</p>
 </c:if>
 
-
-<div class="mdl-typography--title">Mes évènements</div>
-
 <div class="wrapperCards mdl-shadow--2dp">
+    <div class="mdl-typography--title mdl-typography--text-center">Mes évènements</div>
     <div>
         <ul class="mdl-list">
             <c:forEach var="event" items="${events}">
                 <li class="mdl-list__item">
-                    <a href="event/${event.id}" class="mdl-list__item-primary-content">${event.name}</a>
+                    <a href="event/${event.id}" class="mdl-list__item-primary-content">${event.name}</a><a class="mdl-list__item-secondary-action eraseEvent" href="#"><img src="${pageContext.request.contextPath}/images/delete.png"/></a>
                 </li>
             </c:forEach>
         </ul>
