@@ -18,6 +18,8 @@ public class MyEventsController implements PageController {
 
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("isLogged", "true");
+        request.setAttribute("isOnEvents", "true");
         request.getSession().setAttribute("events", this.retrieveUserEvents(request));
         request.getRequestDispatcher("/partials/myevents.jsp").forward(request, response);
     }

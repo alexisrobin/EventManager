@@ -21,6 +21,8 @@ public class DeleteEventController implements PageController {
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EventDAO eDAO = new EventDAO();
+        request.setAttribute("isLogged", "true");
+        request.setAttribute("isOnEvents", "false");
         eDAO.delete(this.retrieveEventWithUri(request));
         response.sendRedirect(request.getContextPath() + "/action/events");
     }

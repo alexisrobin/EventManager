@@ -1,8 +1,10 @@
 package controllers;
 
+import authentication.AuthManager;
 import authentication.AuthRequirement;
 import models.Event;
 import models.Registrant;
+import models.User;
 import models.dao.EventDAO;
 import models.dao.RegistrantDAO;
 
@@ -28,6 +30,10 @@ public class EventRegisterController implements PageController{
 
     @Override
     public void postExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User currentUser = AuthManager.with(request.getSession()).getCurrentUser();
+        boolean isLogged = currentUser != null;
+        request.setAttribute("isLogged", isLogged);
+        request.setAttribute("isOnEvents", "false");
         String lastName = request.getParameter("lastName");
         String firstName = request.getParameter("firstName");
         String companyName = request.getParameter("companyName");
