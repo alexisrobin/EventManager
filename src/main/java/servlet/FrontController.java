@@ -48,6 +48,9 @@ public class FrontController extends HttpServlet{
         } else if (requestUri.contains("loginAccepted")){
             request.setAttribute("login-failed", "false");
             ctrl = new MyEventsController();
+        } else if (requestUri.contains("loginAuthNeeded")){
+            request.setAttribute("login-needed", "true");
+            ctrl = new LoginController();
         } else if(requestUri.contains("login")){
             request.setAttribute("login-failed", "null");
             ctrl = new LoginController();
@@ -90,7 +93,7 @@ public class FrontController extends HttpServlet{
                 && !AuthManager.getInstance(request.getSession()).isUserAuthenticate()){
             System.out.println("Authentication is required to access this website's part");
             ctrl =  null;
-            response.sendRedirect("login");
+            response.sendRedirect("loginAuthNeeded");
         }
 
         return ctrl;

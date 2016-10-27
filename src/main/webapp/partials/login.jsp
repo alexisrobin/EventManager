@@ -33,6 +33,10 @@
     <p style="color:blue"> User registered. You can now login. </p>
 </c:if>
 
+<c:if test="${pageContext.request.getAttribute('login-needed') == 'true'}">
+    <p style="color:"red"> You must be logged in to access this page. </p>
+</c:if>
+
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
 <div class="wrapperAuth mdl-shadow--2dp">
