@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/eventManager.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/material.css"/>
     <title>Event Manager</title>
+
 </head>
 <body>
 
@@ -69,7 +70,7 @@
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input pattern=".{6,}" title="Le mot de passe doit contenir au moins 6 caracteres" class="mdl-textfield__input" type="password" name="pwdConnexion" id="pwdConnexion" required>
                     <label class="mdl-textfield__label" for="pwdConnexion">Mot de passe</label>
-               </div><br>
+                </div><br>
                 <div>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
                         <input type="checkbox" name="checkbox-1" id="checkbox-1" class="mdl-checkbox__input" checked>
@@ -80,7 +81,7 @@
                     <a class="forgotten">Mot de passe oublié ?</a>
                 </div>
                 <div>
-                    <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Connexion"><br><br>
+                    <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Connexion" onclick="rememberMe()"><br><br>
                 </div>
             </form>
         </div>
@@ -105,11 +106,46 @@
                 </div><br>
 
 
-                <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="S'inscrire"><br><br>
+                <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="S'inscrire" ><br><br>
             </form>
         </div>
     </div>
+    <script >
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + document.getElementById(cvalue).value + ";" + expires + ";path=/";
+        }
 
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        function rememberMe(){
+            if (document.getElementById("checkbox-1").checked)
+            {
+                setCookie('mail','mailConnexion');
+                setCookie('pwd','pwdConnexion');
+            }
+        }
+        if (getCookie("pwd") != "" && getCookie("mail") != "")
+            {
+                document.getElementById("mailConnexion").value = getCookie("mail");
+                document.getElementById("pwdConnexion").value = getCookie("pwd");
+            }
+
+    </script>
 </div>
 </body>
 </html>
