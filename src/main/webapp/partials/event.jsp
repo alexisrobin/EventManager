@@ -62,17 +62,17 @@
             <form method="post" action="${pageContext.request.contextPath}/action/eventregister">
                 <div class="mdl-dialog__content">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" name="lastName" id="lastName">
+                        <input class="mdl-textfield__input" type="text" name="lastName" id="lastName" required>
                         <label class="mdl-textfield__label" for="lastName">Nom</label>
                     </div>
                     <br>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" name="firstName" id="firstName">
+                        <input class="mdl-textfield__input" type="text" name="firstName" id="firstName" required>
                         <label class="mdl-textfield__label" for="firstName">Prénom</label>
                     </div>
                     <br>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" name="mail" id="mail">
+                        <input class="mdl-textfield__input" type="email" name="mail" id="mail" required>
                         <label class="mdl-textfield__label" for="mail">Adresse mail</label>
                     </div>
                     <br>
