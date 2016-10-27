@@ -91,6 +91,10 @@ public class FrontController extends HttpServlet{
         else if(requestUri.contains("login")){
             request.setAttribute("login-failed", "null");
         }
+        // Page d'event redirigée par le login réussi
+        else if (requestUri.contains("eventsLoginOk")){
+            request.setAttribute("login-failed", "false");
+        }
         // Page d'event de base sans redirect
         else if (requestUri.contains("events")){
             request.setAttribute("login-failed", "null");

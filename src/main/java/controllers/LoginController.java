@@ -33,7 +33,7 @@ public class LoginController implements PageController{
         {
             System.out.println(uFind.getPassword());
             AuthManager.getInstance(request.getSession()).authenticate(mailConnexion,pwdConnexion);
-            response.sendRedirect("events");
+            response.sendRedirect("eventsLoginOk");
         }else
         {
             System.out.println("ERROR LOGIN");
