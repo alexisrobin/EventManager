@@ -36,23 +36,8 @@
     <div>${event.address}</div>
     <div>${event.startDate}</div>
     <div>${event.endDate}</div>
-</div>
-<br/>
 <c:choose>
-    <c:when test="${isManageable}">
-        <div class="wrapperCards mdl-shadow--2dp">
-            <div class="mdl-typography--title mdl-typography--text-center">Inscriptions</div>
-            <ul class="mdl-list">
-                <c:forEach var="registrant" items="${registrants}">
-                    <li class="mdl-list__item">
-                        <span class="mdl-list__item-primary-content">${registrant.getFullName()}</span>
-                    </li>
-                </c:forEach>
-            </ul>
-        </div>
-    </c:when>
-    <c:otherwise>
-        <div class="wrapperCards mdl-shadow--2dp">
+    <c:when test="${!isManageable}">
             <button type="button"
                     class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored show-modal">
                 S'inscrire à l'évènement
@@ -100,6 +85,19 @@
                 dialog.close();
             });
         </script>
+    </c:when>
+    <c:otherwise>
+        </div>
+        <div class="wrapperCards mdl-shadow--2dp">
+            <div class="mdl-typography--title mdl-typography--text-center">Inscriptions</div>
+            <ul class="mdl-list">
+                <c:forEach var="registrant" items="${registrants}">
+                    <li class="mdl-list__item">
+                        <span class="mdl-list__item-primary-content">${registrant.getFullName()}</span>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
     </c:otherwise>
 </c:choose>
 <br/>

@@ -37,7 +37,6 @@ public class NewEventController implements PageController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        User currentUser = AuthManager.getInstance(request.getSession()).getCurrentUser();
         if(     name != null && !name.isEmpty()
                 && address != null && !address.isEmpty()
                 && currentUser != null && startDate != null
