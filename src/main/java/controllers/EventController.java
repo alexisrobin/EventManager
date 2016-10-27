@@ -30,7 +30,7 @@ public class EventController implements PageController {
         request.setAttribute("isLogged", isLogged);
         Event event = this.retrieveEventWithUri(request);
         boolean isManageable = (isLogged) && (currentUser.getMail().equals(event.getUser().getMail()));
-        request.setAttribute("isOnEvents", "true");
+        request.setAttribute("isOnEvents", false);
         request.getSession().setAttribute("event", event);
         request.getSession().setAttribute("registrants", this.retrieveEventRegistrants(event));
         request.getSession().setAttribute("isManageable", isManageable);

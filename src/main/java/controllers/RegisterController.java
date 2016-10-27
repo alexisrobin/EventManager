@@ -25,8 +25,8 @@ public class RegisterController implements PageController {
 
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("isLogged", "false");
-        request.setAttribute("isOnEvents", "false");
+        request.setAttribute("isLogged", false);
+        request.setAttribute("isOnEvents", false);
     }
 
     @Override
