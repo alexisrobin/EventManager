@@ -45,15 +45,20 @@
             <label class="mdl-textfield__label" for="eventAddress">Adresse</label>
         </div><br>
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" name="eventAddress" id="date-format">
-            <label class="mdl-textfield__label" for="eventAddress">Date et heure</label>
+            <input class="mdl-textfield__input" type="text" name="eventStartDate" id="start-date-format">
+            <label class="mdl-textfield__label" for="eventAddress">Date et heure de départ</label>
+        </div><br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="eventEndDate" id="end-date-format">
+            <label class="mdl-textfield__label" for="eventAddress">Date et heure de fin</label>
         </div><br>
         <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Créer l'évènement"><br><br>
     </form>
 </div>
 
 <script type="text/javascript">
-    $('#date-format').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
+    $('#start-date-format').bootstrapMaterialDatePicker({ format : 'DD/MM/YY HH:mm' });
+    $('#end-date-format').bootstrapMaterialDatePicker({ format : 'DD/MM/YY HH:mm' });
 </script>
 
 </body>

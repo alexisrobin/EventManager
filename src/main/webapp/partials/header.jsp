@@ -14,7 +14,6 @@
     <div class="mdl-layout--fixed-header  eventManager-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row headerText">
-                <!-- TODO TSZ revoir icone en version propre -->
                 <span class="mdl-layout-title"><img src="${pageContext.request.contextPath}/images/logo.png" /> EventManager</span>
                 <div class="mdl-layout-spacer"></div>
                 <span id="myEvents"><a href="${pageContext.request.contextPath}/action/events">Mes évènements</a><img src="${pageContext.request.contextPath}/images/calendar.png" />&nbsp;&nbsp;&nbsp;</span>
