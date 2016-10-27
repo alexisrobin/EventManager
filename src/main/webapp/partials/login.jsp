@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/eventManager.css"/>
@@ -17,12 +18,28 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
 
+<%@ include file="header.jsp" %>
+
+<!-- TODO TSZ AJOUTER STYLE -->
+<c:if test="${pageContext.request.getAttribute('login-failed') == 'true'}">
+    <p style="color:red"> Login failed. Please try again or register.</p>
+</c:if>
+
+<c:if test="${pageContext.request.getAttribute('register-failed') == 'true'}">
+    <p style="color:red"> Register failed.</p>
+</c:if>
+
+<c:if test="${pageContext.request.getAttribute('register-failed') == 'false'}">
+    <p style="color:blue"> User registered. You can now login. </p>
+</c:if>
+
+<c:if test="${pageContext.request.getAttribute('login-needed') == 'true'}">
+    <p style="color:red"> You must be logged in to access this page. </p>
+</c:if>
+
 <!-- Wrapper qui contient le bloc total sur lequel on applique le CSS pour centrer -->
 
 <div class="wrapperAuth mdl-shadow--2dp">
-    <div class="EMbanner mdl-shadow--2dp">
-        <img src="${pageContext.request.contextPath}/images/logo.png" /> EventManager
-    </div>
     <p class="mdl-typography--title EMsectionTitle">Authentification</p>
 
     <div class="mdl-tabs mdl-js-tabs">
@@ -86,23 +103,6 @@
         </div>
     </div>
 
-
-
-    <script type = "text/javascript">
-
-        function checkPassword()
-        {
-            if (document.getElementById('pwdInscription').value == document.getElementById('pwdInscription2').value && document.getElementById('pwdInscription').value != '')
-            {
-             document.getElementById('errorMessagepwd').style.display = 'none';
-            }
-            else
-            {
-             document.getElementById('errorMessagepwd').style.display = 'block'
-            }
-        }
-    </script>
 </div>
-
 </body>
 </html>

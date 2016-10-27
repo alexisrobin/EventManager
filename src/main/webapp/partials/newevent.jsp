@@ -11,17 +11,28 @@
 <head>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/eventManager.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/material.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-material-datetimepicker.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Event Manager</title>
 </head>
 <body>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/moment-with-locales.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap-material-datetimepicker.js"></script>
 
-<div class="mdl-typography--title">Nouvel évènement</div>
+<%@ include file="header.jsp" %>
+
+<c:if test="${pageContext.request.getAttribute('add-failed') == 'true'}">
+    <p style="color:red"> Error while adding the event. Make sure you are logged in and all the fields are filled.</p>
+</c:if>
+
 
 <!-- Form create new event -->
 <div class="wrapperCards mdl-shadow--2dp">
+
+    <div class="mdl-typography--title mdl-typography--text-center">Nouvel évènement</div>
     <form method="post">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" type="text" name="eventName" id="eventName">
@@ -31,11 +42,17 @@
             <input class="mdl-textfield__input" type="text" name="eventAddress" id="eventAddress">
             <label class="mdl-textfield__label" for="eventAddress">Adresse</label>
         </div><br>
-
-        <!-- DATE TO ADD THERE -->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" name="eventAddress" id="date-format">
+            <label class="mdl-textfield__label" for="eventAddress">Date et heure</label>
+        </div><br>
         <input type="submit" class="submitbutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  value="Créer l'évènement"><br><br>
     </form>
 </div>
+
+<script type="text/javascript">
+    $('#date-format').bootstrapMaterialDatePicker({ format : 'dddd DD MMMM YYYY - HH:mm' });
+</script>
 
 </body>
 </html>

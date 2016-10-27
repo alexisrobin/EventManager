@@ -33,11 +33,19 @@ public class AuthManager {
     }
 
     public User getCurrentUser(){
-        return (User) this.session.getAttribute("user");
+        try{
+            return (User) this.session.getAttribute("user");
+        } catch(IllegalStateException e){
+            return null;
+        }
     }
 
-    public boolean isUserAuthenticate(){
-        return this.session.getAttribute("user") != null;
+    public boolean isUserAuthenticate() {
+        try{
+            return this.session.getAttribute("user") != null;
+        } catch(IllegalStateException e){
+            return false;
+        }
     }
 
     public void invalidateUserAuthentication(){

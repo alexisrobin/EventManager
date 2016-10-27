@@ -20,8 +20,15 @@
 }
 
 .wrapperCards{
-    margin : auto auto auto auto;
+    margin : 100px auto auto auto;
+    padding : 20px;
     max-width : 500px;
+}
+
+.wrapperNotification{
+    margin : 100px auto auto auto;
+    text-align: center;
+    color: darkgray;
 }
 
 .lowerButton{
@@ -34,6 +41,20 @@
     font-size: 12px;
     margin-top: 3px;
     visibility: hidden;
-    display: block; }
+    display: block;
+}
 .erreur {
-    visibility: visible; }
+    visibility: visible;
+}
+
+.header-content{
+    text-align:center;
+}
+
+.header-right{
+    text-align:right;
+}
+
+li:hover {
+    background-color : lightgrey;
+}

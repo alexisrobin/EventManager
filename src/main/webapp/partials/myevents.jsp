@@ -18,14 +18,20 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/material.js"></script>
 
-<div class="mdl-typography--title">Mes évènements</div>
+<%@ include file="header.jsp" %>
+
+<!-- TODO TSZ AJOUTER STYLE -->
+<c:if test="${pageContext.request.getAttribute('login-failed') == 'false'}">
+    <p style="color:blue"> Welcome !</p>
+</c:if>
 
 <div class="wrapperCards mdl-shadow--2dp">
+    <div class="mdl-typography--title mdl-typography--text-center">Mes évènements</div>
     <div>
         <ul class="mdl-list">
             <c:forEach var="event" items="${events}">
                 <li class="mdl-list__item">
-                    <a href="event/${event.id}" class="mdl-list__item-primary-content">${event.name}</a>
+                    <a href="event/${event.id}" class="mdl-list__item-primary-content">${event.name}</a><a class="mdl-list__item-secondary-action eraseEvent" href="#"><img src="${pageContext.request.contextPath}/images/delete.png"/></a>
                 </li>
             </c:forEach>
         </ul>

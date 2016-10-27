@@ -19,7 +19,7 @@ public class Registrant {
 
     private String companyName;
 
-    private String address;
+    private String mail;
 
     @ManyToOne
     private Event event;
@@ -43,8 +43,8 @@ public class Registrant {
         return companyName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getMail() {
+        return mail;
     }
 
     public Event getEvent() {
@@ -59,20 +59,20 @@ public class Registrant {
         this.lastName = builder.lastName;
         this.firstName = builder.firstName;
         this.companyName = builder.companyName;
-        this.address = builder.address;
+        this.mail = builder.mail;
         this.event = builder.event;
     }
 
     public static class RegistrantBuilder{
 
-        private String lastName, firstName, companyName, address;
+        private String lastName, firstName, companyName, mail;
         private Event event;
 
         public RegistrantBuilder() {
             this.lastName = "";
             this.firstName = "";
             this.companyName = "";
-            this.address = "";
+            this.mail = "";
             this.event = null;
         }
 
@@ -91,8 +91,8 @@ public class Registrant {
             return this;
         }
 
-        public Registrant.RegistrantBuilder setAddress(String address) {
-            this.address = address;
+        public Registrant.RegistrantBuilder setMail(String mail) {
+            this.mail = mail;
             return this;
         }
 
