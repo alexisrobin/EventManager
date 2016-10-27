@@ -46,3 +46,8 @@
 li:hover {
     background-color : lightgrey;
 }
+
+a{
+    color:inherit !important;
+    text-decoration: none;
+}
