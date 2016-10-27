@@ -25,7 +25,7 @@ public class EventController implements PageController {
 
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User currentUser = AuthManager.getInstance(request.getSession()).getCurrentUser();
+        User currentUser = AuthManager.with(request.getSession()).getCurrentUser();
         Event event = this.retrieveEventWithUri(request);
         boolean isManageable = (currentUser != null) && (currentUser.getMail().equals(event.getUser().getMail()));
         request.getSession().setAttribute("event", event);

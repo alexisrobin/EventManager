@@ -24,7 +24,7 @@ public class NewEventController implements PageController {
     public void postExecute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("eventName");
         String address = request.getParameter("eventAddress");
-        User currentUser = AuthManager.getInstance(request.getSession()).getCurrentUser();
+        User currentUser = new AuthManager(request.getSession()).getCurrentUser();
         if(     name != null && !name.isEmpty()
                 && address != null && !address.isEmpty()
                 && currentUser != null){

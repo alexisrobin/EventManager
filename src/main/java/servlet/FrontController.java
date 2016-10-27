@@ -19,6 +19,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "FrontController", urlPatterns = "/action/*")
 public class FrontController extends HttpServlet{
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         PageController ctrl = process(request, response);
@@ -39,6 +40,7 @@ public class FrontController extends HttpServlet{
     {
         // response.setContentType("text/html");
         HttpSession session = request.getSession();
+        AuthManager authManager = AuthManager.with(session);
         PageController ctrl = null;
         String requestUri = request.getRequestURI();
         System.out.println(requestUri);
@@ -58,19 +60,20 @@ public class FrontController extends HttpServlet{
         }
         else if (requestUri.contains("auth")){
             // Simulate test auth (create user if he doesn't exist)
-            if(!AuthManager.getInstance(session).authenticate("robinalexis@outlook.fr", "okok")){
+            if(authManager.authenticate("robinalexis@outlook.fr", "okok")){
                 System.out.println("create test user");
                 User newUser = new User.UserBuilder().setMail("robinalexis@outlook.fr").setPassword("okok").build();
                 UserDAO uDAO = new UserDAO();
                 uDAO.create(newUser);
-                AuthManager.getInstance(session).authenticate("robinalexis@outlook.fr", "okok");
+                authManager.authenticate("robinalexis@outlook.fr", "okok");
             }
-            System.out.println(AuthManager.getInstance(session).isUserAuthenticate());
+            System.out.println(authManager.isUserAuthenticate());
         }else if (requestUri.contains("disconnect")){
-            AuthManager.getInstance(session).invalidateUserAuthentication();
+            authManager.invalidateUserAuthentication();
+            response.sendRedirect("login");
         }
 
-        return this.authenticationSecurityCheck(request, response, ctrl);
+        return this.authenticationSecurityCheck(authManager, response, ctrl);
     }
 
     // Gestion des redirections : Arguments différents ajoutés à la requête d'une même page
@@ -105,11 +108,11 @@ public class FrontController extends HttpServlet{
         }
     }
 
-    protected PageController authenticationSecurityCheck(HttpServletRequest request, HttpServletResponse response, PageController ctrl) throws IOException {
+    protected PageController authenticationSecurityCheck(AuthManager authManager, HttpServletResponse response, PageController ctrl) throws IOException {
         // Authentication
         if(     ctrl != null
                 && ctrl.getAuthRequirementState() == AuthRequirement.AuthRequirementState.IS_REQUIRED
-                && !AuthManager.getInstance(request.getSession()).isUserAuthenticate()){
+                && !authManager.isUserAuthenticate()){
             System.out.println("Authentication is required to access this website's part");
             ctrl =  null;
             response.sendRedirect("loginAuthNeeded");
