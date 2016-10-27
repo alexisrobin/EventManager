@@ -41,6 +41,7 @@
 <c:choose>
     <c:when test="${isManageable}">
         <div class="wrapperCards mdl-shadow--2dp">
+            <div class="mdl-typography--title mdl-typography--text-center">Inscriptions</div>
             <ul class="mdl-list">
                 <c:forEach var="registrant" items="${registrants}">
                     <li class="mdl-list__item">
@@ -71,15 +72,14 @@
                     </div>
                     <br>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" name="companyName" id="companyName">
-                        <label class="mdl-textfield__label" for="companyName">Société</label>
-                    </div>
-                    <br>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" name="mail" id="mail">
                         <label class="mdl-textfield__label" for="mail">Adresse mail</label>
                     </div>
                     <br>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" name="companyName" id="companyName">
+                        <label class="mdl-textfield__label" for="companyName">Société</label>
+                    </div>
                 </div>
                 <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
                     <input type="hidden" name="eventId" value="${event.id}">
