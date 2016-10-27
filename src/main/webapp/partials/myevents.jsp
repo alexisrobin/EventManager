@@ -20,9 +20,10 @@
 
 <%@ include file="header.jsp" %>
 
-<!-- TODO TSZ AJOUTER STYLE -->
 <c:if test="${pageContext.request.getAttribute('login-failed') == 'false'}">
-    <p style="color:blue"> Welcome !</p>
+    <div id="alert">
+        <a class="alert blueAlert" href="#alert"><span style="color:white;">Connexion réussie !</span></a>
+    </div>
 </c:if>
 
 <div class="wrapperCards mdl-shadow--2dp">

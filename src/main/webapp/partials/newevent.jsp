@@ -25,7 +25,9 @@
 <%@ include file="header.jsp" %>
 
 <c:if test="${pageContext.request.getAttribute('add-failed') == 'true'}">
-    <p style="color:red"> Error while adding the event. Make sure you are logged in and all the fields are filled.</p>
+    <div id="alert">
+        <a class="alert redAlert" href="#alert"><span style="color:white;">Erreur lors de l'ajout de l'évènement. Merci de vérifier que les champs sont renseignés.</span></a>
+    </div>
 </c:if>
 
 
