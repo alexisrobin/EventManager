@@ -27,6 +27,7 @@ public class NewEventController implements PageController {
     public void postExecute(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String name = request.getParameter("eventName");
         String address = request.getParameter("eventAddress");
+        User currentUser = AuthManager.with(request.getSession()).getCurrentUser();
         SimpleDateFormat dateParser = new SimpleDateFormat("dd/MM/yy HH:mm");
         Date startDate = null;
         Date endDate = null;
@@ -45,9 +46,9 @@ public class NewEventController implements PageController {
             EventDAO eventDAO = new EventDAO();
             Event e = new Event.EventBuilder().setName(name).setAddress(address).setUser(currentUser).setStartDate(startDate).setEndDate(endDate).build();
             eventDAO.create(e);
-            response.sendRedirect("events");
+            response.sendRedirect(request.getContextPath() + "/action/events");
         } else {
-            response.sendRedirect("newError");
+            response.sendRedirect(request.getContextPath() + "/action/newError");
         }
     }
 

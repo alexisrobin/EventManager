@@ -11,45 +11,39 @@ import javax.servlet.http.HttpSession;
  */
 public class AuthManager {
 
-    private static AuthManager SINGLETON = null;
+    private static AuthManager instance;
     private static HttpSession session;
+
+    public static AuthManager with(HttpSession session){
+        if(instance == null){
+            instance = new AuthManager(session);
+        } else {
+            instance.session = session;
+        }
+        return instance;
+    }
 
     private AuthManager(HttpSession session){
         this.session = session;
     }
 
-    public static AuthManager getInstance(HttpSession session){
-        if(SINGLETON == null){
-            SINGLETON = new AuthManager(session);
-        }
-        return SINGLETON;
-    }
-
-    public boolean authenticate(String mail, String password){
+    public static boolean authenticate(String mail, String password){
         UserDAO uDAO = new UserDAO();
         User resultUser = uDAO.find(mail, password);
-        this.session.setAttribute("user", resultUser);
+        session.setAttribute("user", resultUser);
         return resultUser != null;
     }
 
-    public User getCurrentUser(){
-        try{
-            return (User) this.session.getAttribute("user");
-        } catch(IllegalStateException e){
-            return null;
-        }
+    public static User getCurrentUser(){
+        return (User) session.getAttribute("user");
     }
 
-    public boolean isUserAuthenticate() {
-        try{
-            return this.session.getAttribute("user") != null;
-        } catch(IllegalStateException e){
-            return false;
-        }
+    public static boolean isUserAuthenticate() {
+        return session.getAttribute("user") != null;
     }
 
-    public void invalidateUserAuthentication(){
-        this.session.invalidate();
+    public static void invalidateUserAuthentication(){
+        session.invalidate();
     }
 
 }

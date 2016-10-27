@@ -5,7 +5,7 @@
   Time: 14:18
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -32,7 +32,7 @@
         <ul class="mdl-list">
             <c:forEach var="event" items="${events}">
                 <li class="mdl-list__item">
-                    <a href="event/${event.id}" class="mdl-list__item-primary-content">${event.name}</a><a class="mdl-list__item-secondary-action eraseEvent" href="#"><img src="${pageContext.request.contextPath}/images/delete.png"/></a>
+                    <a href="${pageContext.request.contextPath}/action/event/${event.id}" class="mdl-list__item-primary-content">${event.name}</a><a class="mdl-list__item-secondary-action eraseEvent" href="${pageContext.request.contextPath}/action/event/${event.id}/delete"><img src="${pageContext.request.contextPath}/images/delete.png"/></a>
                 </li>
             </c:forEach>
         </ul>

@@ -52,6 +52,6 @@ public class EventRegisterController implements PageController{
         } else {
             request.getSession().setAttribute("message", "Inscription failed");
         }
-        response.sendRedirect("event/" + eventId);
+        response.sendRedirect(request.getContextPath() + "/action/event/" + eventId);
     }
 }
