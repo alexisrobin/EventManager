@@ -17,8 +17,10 @@
             <div class="mdl-layout__header-row headerText">
                 <span class="mdl-layout-title"><img src="${pageContext.request.contextPath}/images/logo.png" /> EventManager</span>
                 <div class="mdl-layout-spacer"></div>
-                <c:if test="${pageContext.request.getAttribute('isLogged') == 'true'} && ${pageContext.request.getAttribute('isOnEvents') == 'false'}">
-                    <span id="myEvents"><a href="${pageContext.request.contextPath}/action/events">Mes évènements<img src="${pageContext.request.contextPath}/images/calendar.png" /></a>&nbsp;&nbsp;&nbsp;</span>
+                <c:if test="${pageContext.request.getAttribute('isLogged') == 'true'}">
+                    <c:if test="${pageContext.request.getAttribute('isOnEvents') == 'false'}">
+                        <span id="myEvents"><a href="${pageContext.request.contextPath}/action/events">Mes évènements<img src="${pageContext.request.contextPath}/images/calendar.png" /></a>&nbsp;&nbsp;&nbsp;</span>
+                    </c:if>
                 </c:if>
                 <!-- TODO TSZ changer déconnexion / reconnexion selon la session + ne rien mettre dans login -->
                 <c:if test="${pageContext.request.getAttribute('isLogged') != null}">
@@ -27,7 +29,7 @@
                             <a href="${pageContext.request.contextPath}/action/login">Connexion <img src="${pageContext.request.contextPath}/images/login.png" /></a>
                         </span>
                     </c:if>
-                    <c:if test="${pageContext.request.getAttribute('login-failed') == 'true'}">
+                    <c:if test="${pageContext.request.getAttribute('isLogged') == 'true'}">
                         <span id="disconnect">
                             <a href="${pageContext.request.contextPath}/action/logout">Deconnexion <img src="${pageContext.request.contextPath}/images/logout.png" /></a>
                         </span>

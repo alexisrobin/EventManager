@@ -20,8 +20,8 @@ public class NewEventController implements PageController {
 
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("isLogged", "true");
-        request.setAttribute("isOnEvents", "false");
+        request.setAttribute("isLogged", true);
+        request.setAttribute("isOnEvents", false);
         request.getRequestDispatcher("/partials/newevent.jsp").forward(request, response);
     }
 

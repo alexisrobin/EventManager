@@ -33,7 +33,7 @@ public class EventRegisterController implements PageController{
         User currentUser = AuthManager.with(request.getSession()).getCurrentUser();
         boolean isLogged = currentUser != null;
         request.setAttribute("isLogged", isLogged);
-        request.setAttribute("isOnEvents", "false");
+        request.setAttribute("isOnEvents", false);
         String lastName = request.getParameter("lastName");
         String firstName = request.getParameter("firstName");
         String companyName = request.getParameter("companyName");
