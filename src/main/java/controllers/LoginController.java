@@ -15,7 +15,7 @@ public class LoginController implements PageController{
 
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("isLogged", false);
+        request.setAttribute("isLogged", null);
         request.setAttribute("isOnEvents", false);
         System.out.println("get");
 		request.getSession().setAttribute("mailInscription", "kepa@mail.fr");

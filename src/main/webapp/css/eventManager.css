@@ -130,3 +130,7 @@ a{
     color : lightsteelblue;
     font-style : italic;
 }
+
+.eventDate{
+    text-align:center;
+}

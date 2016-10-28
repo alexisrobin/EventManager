@@ -12,7 +12,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Alexis on 26/10/2016.
@@ -31,7 +34,11 @@ public class EventController implements PageController {
         Event event = this.retrieveEventWithUri(request);
         boolean isManageable = (isLogged) && (currentUser.getMail().equals(event.getUser().getMail()));
         request.setAttribute("isOnEvents", false);
+        String formatedStartDate = formatDate(event.getStartDate());
+        String formatedEndDate = formatDate(event.getEndDate());
         request.getSession().setAttribute("event", event);
+        request.getSession().setAttribute("startDate", formatedStartDate);
+        request.getSession().setAttribute("endDate", formatedEndDate);
         request.getSession().setAttribute("registrants", this.retrieveEventRegistrants(event));
         request.getSession().setAttribute("isManageable", isManageable);
         request.getRequestDispatcher("/partials/event.jsp").forward(request, response);
@@ -53,5 +60,10 @@ public class EventController implements PageController {
     private ArrayList<Registrant> retrieveEventRegistrants(Event event) {
         RegistrantDAO rDAO = new RegistrantDAO();
         return rDAO.findRegistrantsByEvent(event);
+    }
+
+    private String formatDate(Date dateToFormat){
+        SimpleDateFormat formater = new SimpleDateFormat("EEE dd MMM yyyy HH:mm", Locale.FRENCH);
+        return formater.format(dateToFormat);
     }
 }

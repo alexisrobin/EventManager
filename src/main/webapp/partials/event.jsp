@@ -33,8 +33,8 @@
 <div class="wrapperCards mdl-shadow--2dp">
     <div class="mdl-typography--title">${event.name}</div>
     <div class="eventAddress">${event.address}</div>
-    <div>${event.startDate}</div>
-    <div>${event.endDate}</div>
+    <div class="eventDate">Début : ${startDate}</div>
+    <div class="eventDate">Fin : ${endDate}</div>
 <c:choose>
     <c:when test="${!isManageable}">
             <button type="button"
