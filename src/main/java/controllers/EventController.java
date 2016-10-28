@@ -52,7 +52,7 @@ public class EventController implements PageController {
     private Event retrieveEventWithUri(HttpServletRequest request){
         String uri = request.getRequestURI();
         String splittedUri[] = uri.split("/");
-        int eventId = Integer.parseInt(splittedUri[splittedUri.length-1]);
+        int eventId = Integer.parseInt(splittedUri[4]);
         EventDAO eDAO = new EventDAO();
         return eDAO.findEventById(eventId);
     }

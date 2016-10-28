@@ -108,6 +108,10 @@ public class FrontController extends HttpServlet{
         else if (requestUri.contains("newError")){
             request.setAttribute("add-failed", "true");
         }
+        // Ajout d'un participant à un event
+        else if (requestUri.contains("eventAddOk")){
+            request.setAttribute("add-reg-ok", "true");
+        }
     }
 
     protected PageController authenticationSecurityCheck(HttpServletRequest request, HttpServletResponse response, PageController ctrl) throws IOException {

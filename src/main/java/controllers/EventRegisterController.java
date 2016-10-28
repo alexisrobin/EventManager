@@ -55,9 +55,10 @@ public class EventRegisterController implements PageController{
                     .setEvent(event).build();
             rDAO.create(registrant);
             request.getSession().setAttribute("message", "Inscription succeeded");
+            response.sendRedirect(request.getContextPath() + "/action/event/" + eventId + "/eventAddOk");
         } else {
             request.getSession().setAttribute("message", "Inscription failed");
+            response.sendRedirect(request.getContextPath() + "/action/event/" + eventId);
         }
-        response.sendRedirect(request.getContextPath() + "/action/event/" + eventId);
     }
 }

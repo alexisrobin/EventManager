@@ -134,3 +134,12 @@ a{
 .eventDate{
     text-align:center;
 }
+
+.registrantCard{
+    margin:auto 0;
+}
+
+.leftbutton{
+    position:fixed;
+    float:left;
+}

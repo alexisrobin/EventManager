@@ -30,6 +30,12 @@
 
 <%@ include file="header.jsp" %>
 
+<c:if test="${pageContext.request.getAttribute('add-reg-ok') == 'true'}">
+    <div id="alert">
+        <a class="alert blueAlert" href="#alert"><span style="color:white;">Utilisateur inscrit à l'évènement.</span></a>
+    </div>
+</c:if>
+
 <div class="wrapperCards mdl-shadow--2dp">
     <div class="mdl-typography--title">${event.name}</div>
     <div class="eventAddress">${event.address}</div>
