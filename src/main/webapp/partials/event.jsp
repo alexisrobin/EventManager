@@ -91,9 +91,18 @@
             <div class="mdl-typography--title mdl-typography--text-center">Inscriptions</div>
             <ul class="mdl-list">
                 <c:forEach var="registrant" items="${registrants}">
-                    <li class="mdl-list__item">
-                        <span class="mdl-list__item-primary-content">${registrant.getFullName()}</span>
-                    </li>
+                    <div class="mdl-card mdl-shadow--4dp">
+                        <div class="mdl-card__title">
+                            <h3 class="mdl-card__title-text">
+                                ${registrant.getFullName()}
+                            </h3>
+                        </div>
+                        <div class="mdl-card__supporting-text">
+                            ${registrant.getMail()}<br>
+                            Société ${registrant.getCompanyName()}
+                        </div>
+                    </div>
+                    <br><br><br>
                 </c:forEach>
             </ul>
         </div>
