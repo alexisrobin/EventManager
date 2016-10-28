@@ -30,10 +30,9 @@
 
 <%@ include file="header.jsp" %>
 
-<div class="mdl-typography--title">${event.name}</div>
 <div class="wrapperCards mdl-shadow--2dp">
-    <div>${event.name}</div>
-    <div>${event.address}</div>
+    <div class="mdl-typography--title">${event.name}</div>
+    <div class="eventAddress">${event.address}</div>
     <div>${event.startDate}</div>
     <div>${event.endDate}</div>
 <c:choose>
