@@ -41,6 +41,7 @@
     <div class="eventAddress">${event.address}</div>
     <div class="eventDate">Début : ${startDate}</div>
     <div class="eventDate">Fin : ${endDate}</div>
+    <br/>
 <c:choose>
     <c:when test="${!isManageable}">
             <button type="button"
@@ -94,21 +95,26 @@
     <c:otherwise>
         </div>
         <div class="wrapperCards mdl-shadow--2dp">
+            <div class="urlshare-text">Partagez cet évènement avec l'URL suivante:</div>
+            <div class="urlshare-url">${url}</div>
+        </div>
+        <div class="wrapperCards mdl-shadow--2dp">
             <div class="mdl-typography--title mdl-typography--text-center">Inscriptions</div>
             <ul class="mdl-list">
                 <c:forEach var="registrant" items="${registrants}">
-                    <div class="mdl-card mdl-shadow--4dp">
-                        <div class="mdl-card__title">
-                            <h3 class="mdl-card__title-text">
-                                ${registrant.getFullName()}
-                            </h3>
+                    <li>
+                        <div class="wrapperCards-inscriptions mdl-shadow--4dp">
+                            <div class="mdl-card__title">
+                                <h4 class="mdl-card__title-text">
+                                        ${registrant.getFullName()}
+                                </h4>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                    ${registrant.getMail()}<br>
+                                Société ${registrant.getCompanyName()}
+                            </div>
                         </div>
-                        <div class="mdl-card__supporting-text">
-                            ${registrant.getMail()}<br>
-                            Société ${registrant.getCompanyName()}
-                        </div>
-                    </div>
-                    <br><br><br>
+                    </li>
                 </c:forEach>
             </ul>
         </div>

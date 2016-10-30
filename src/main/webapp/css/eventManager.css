@@ -20,8 +20,14 @@
 }
 
 .wrapperCards{
-    margin : 100px auto auto auto;
+    margin : 50px auto auto auto;
     padding : 20px;
+    max-width : 500px;
+}
+
+.wrapperCards-inscriptions{
+    margin : auto auto 10px auto;
+    padding : 10px;
     max-width : 500px;
 }
 
@@ -142,4 +148,18 @@ a{
 .leftbutton{
     position:fixed;
     float:left;
+}
+
+.urlshare-text {
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.urlshare-url {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 18px;
+    color: darkgray;
 }

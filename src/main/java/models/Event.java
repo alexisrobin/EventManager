@@ -22,7 +22,7 @@ public class Event {
 
     private Date endDate;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
 
     public Event() {

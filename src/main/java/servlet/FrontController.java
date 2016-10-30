@@ -20,6 +20,8 @@ import java.io.IOException;
 @WebServlet(name = "FrontController", urlPatterns = "/action/*")
 public class FrontController extends HttpServlet{
 
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         PageController ctrl = process(request, response);

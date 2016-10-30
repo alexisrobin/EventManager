@@ -21,7 +21,7 @@ public class Registrant {
 
     private String mail;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Event event;
 
     public Registrant() {

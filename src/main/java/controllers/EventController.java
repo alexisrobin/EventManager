@@ -41,6 +41,7 @@ public class EventController implements PageController {
         request.getSession().setAttribute("endDate", formatedEndDate);
         request.getSession().setAttribute("registrants", this.retrieveEventRegistrants(event));
         request.getSession().setAttribute("isManageable", isManageable);
+        request.getSession().setAttribute("url", request.getRequestURL());
         request.getRequestDispatcher("/partials/event.jsp").forward(request, response);
     }
 
