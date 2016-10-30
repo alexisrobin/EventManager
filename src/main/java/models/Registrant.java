@@ -3,9 +3,8 @@ package models;
 import javax.persistence.*;
 
 /**
- * Created by Alexis on 25/10/2016.
+ * Defines an event's registrant.
  */
-
 @Entity
 public class Registrant {
 

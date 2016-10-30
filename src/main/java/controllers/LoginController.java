@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Alexis on 05/10/2016.
+ * Login's controller.
  */
 public class LoginController implements PageController{
 

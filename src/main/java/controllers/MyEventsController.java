@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Created by il-es on 17/10/2016.
+ * User event list display's controller.
  */
 public class MyEventsController implements PageController {
 

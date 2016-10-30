@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 
 /**
- * Created by Alexis on 25/10/2016.
+ * The registrant's model DAO.
  */
 public class RegistrantDAO {
     private static final String SELECT_BY_EVENT = "SELECT r FROM Registrant r WHERE r.event=:event";

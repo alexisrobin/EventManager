@@ -5,7 +5,7 @@ import models.User;
 import javax.persistence.*;
 
 /**
- * Created by Alexis on 21/10/2016.
+ * The user's model DAO.
  */
 public class UserDAO {
     private static final String SELECT_BY_MAIL = "SELECT u FROM User u WHERE u.mail=:mail AND u.password=:password";

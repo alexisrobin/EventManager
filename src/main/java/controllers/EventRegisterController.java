@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Alexis on 26/10/2016.
+ * Event registration's controller.
  */
 public class EventRegisterController implements PageController{
 

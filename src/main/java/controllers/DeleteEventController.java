@@ -2,7 +2,9 @@ package controllers;
 
 import authentication.AuthRequirement;
 import models.Event;
+import models.Registrant;
 import models.dao.EventDAO;
+import models.dao.RegistrantDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Alexis on 27/10/2016.
+ * Deleting event's contoller.
  */
 public class DeleteEventController implements PageController {
     @Override
@@ -21,10 +23,18 @@ public class DeleteEventController implements PageController {
     @Override
     public void getExecute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EventDAO eDAO = new EventDAO();
+        RegistrantDAO rDAO = new RegistrantDAO();
         request.setAttribute("isLogged", true);
         request.setAttribute("isOnEvents", false);
-        eDAO.delete(this.retrieveEventWithUri(request));
-        response.sendRedirect(request.getContextPath() + "/action/events");
+        Event event = this.retrieveEventWithUri(request);
+
+        // Check if the event has no registrant
+        if(rDAO.findRegistrantsByEvent(event).isEmpty()){
+            eDAO.delete(this.retrieveEventWithUri(request));
+            response.sendRedirect(request.getContextPath() + "/action/events/evtDelOk");
+        } else {
+            response.sendRedirect(request.getContextPath() + "/action/events/evtDelFail");
+        }
     }
 
     @Override

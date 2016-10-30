@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Alexis on 26/10/2016.
+ * User registration's controller.
  */
 public class RegisterController implements PageController {
     @Override

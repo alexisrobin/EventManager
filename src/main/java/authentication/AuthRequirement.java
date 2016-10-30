@@ -1,7 +1,7 @@
 package authentication;
 
 /**
- * Created by Alexis on 25/10/2016.
+ * Interface which applies an authentication requirement state on an object.
  */
 public interface AuthRequirement {
 

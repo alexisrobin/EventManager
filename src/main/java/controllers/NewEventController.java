@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by Alexis on 24/10/2016.
+ * New event's controller.
  */
 public class NewEventController implements PageController {
 

@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import java.util.ArrayList;
 
 /**
- * Created by Alexis on 21/10/2016.
+ * The event's model DAO.
  */
 public class EventDAO {
     private static final String SELECT_BY_USER = "SELECT e FROM Event e WHERE e.user=:user";

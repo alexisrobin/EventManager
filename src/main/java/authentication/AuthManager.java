@@ -7,7 +7,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by Alexis on 25/10/2016.
+ * Authentication Manager use to handle user's session.
  */
 public class AuthManager {
 

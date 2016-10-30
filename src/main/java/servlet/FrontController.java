@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by Alexis on 05/10/2016.
+ * The only eventmanager's Servlet.
+ * Delegates "doPost" and "doGet" behaviors with the requested URI to the right PageController.
+ * Handles authentication requirement, redirection and information messages.
  */
 @WebServlet(name = "FrontController", urlPatterns = "/action/*")
 public class FrontController extends HttpServlet{
@@ -113,6 +115,14 @@ public class FrontController extends HttpServlet{
         // Ajout d'un participant à un event
         else if (requestUri.contains("eventAddOk")){
             request.setAttribute("add-reg-ok", "true");
+        }
+        // Suppression d'un évènement effectuée
+        if (requestUri.contains("evtDelOk")){
+            request.setAttribute("event-del-ok", "true");
+        }
+        // Suppression d'un évènement impossible
+        if (requestUri.contains("evtDelFail")){
+            request.setAttribute("event-del-fail", "true");
         }
     }
 

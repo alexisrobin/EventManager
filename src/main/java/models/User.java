@@ -4,9 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by Alexis on 21/10/2016.
+ * Defines an eventmanager's user.
  */
-
 @Entity
 public class User {
 

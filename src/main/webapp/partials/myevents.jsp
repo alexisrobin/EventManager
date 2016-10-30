@@ -26,6 +26,18 @@
     </div>
 </c:if>
 
+<c:if test="${pageContext.request.getAttribute('event-del-ok') == 'true'}">
+    <div id="alert">
+        <a class="alert blueAlert" href="#alert"><span style="color:white;">Évènement supprimé !</span></a>
+    </div>
+</c:if>
+
+<c:if test="${pageContext.request.getAttribute('event-del-fail') == 'true'}">
+    <div id="alert">
+        <a class="alert redAlert" href="#alert"><span style="color:white;">Suppression impossible: des personnes sont inscrites à l'évènement !</span></a>
+    </div>
+</c:if>
+
 <div class="wrapperCards mdl-shadow--2dp">
     <div class="mdl-typography--title mdl-typography--text-center">Mes évènements</div>
     <div>
@@ -37,7 +49,7 @@
             </c:forEach>
         </ul>
         <div class="lowerButton">
-            <a href="new" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <a href="${pageContext.request.contextPath}/action/new" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
                 <i class="material-icons">+</i>
             </a>
         </div>

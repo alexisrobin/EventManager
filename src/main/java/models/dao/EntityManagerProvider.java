@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- * Created by Alexis on 21/10/2016.
+ * Provides a generic EntityManager for the eventmanager's DAO.
  */
 public class EntityManagerProvider {
     private static String UNIT_NAME = "eventmanager-unit";

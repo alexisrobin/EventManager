@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by Alexis on 26/10/2016.
+ * Event display's controller.
  */
 public class EventController implements PageController {
     @Override

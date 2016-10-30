@@ -4,9 +4,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by Alexis on 17/10/2016.
+ * Defines an eventmanager's event.
  */
-
 @Entity
 public class Event {
 
